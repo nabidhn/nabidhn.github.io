@@ -10,6 +10,8 @@ title: Projects
 - OFDM transmitter & receiver design
 - Phase noise impact study  
 
+![Digital Communication Simulation](/workspaces/nabidhn.github.io/images/Screenshot_20260201_122536.png)
+
 🔗 [View on GitHub](https://github.com/nabidhn/digital-communication-simulations)
 
 ---
