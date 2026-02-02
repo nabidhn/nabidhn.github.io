@@ -4,8 +4,8 @@ plugins:
   - jekyll-remote-theme
 
 # Site info
-title: Nabidhn Portfolio
-description: Digital Communication, SDR, RF, 5G projects
+title: Nabid Hasan's Portfolio
+description: GNSS • 5G • RAN • Machine Learning • Cloud • Linux 
 
 # Optional settings
 show_downloads: false
