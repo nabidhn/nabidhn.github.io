@@ -5,38 +5,96 @@ title: Projects
 
 # 🛠 Projects
 
-## 📡 Digital Communication System Simulations (QAM / PSK / OFDM)
-- BER analysis under AWGN & fading
-- OFDM transmitter & receiver design
-- Phase noise impact study  
+<div class="project-grid">
 
-![Digital Communication Simulation](images/Screenshot_20260201_122536.png)
+  <!-- SDR Project -->
+  <div class="project-card">
+    <img src="images/sdr_usrp.png" alt="SDR USRP Project">
+    <div class="project-content">
+      <h3>Software-Defined Radio Communication Chain</h3>
+      <p>
+        End-to-end SDR communication chain implemented using USRP and LabVIEW,
+        focusing on real-time transmission, reception, and RF impairment analysis.
+      </p>
+      <div class="tags">
+        <span>SDR</span>
+        <span>USRP</span>
+        <span>LabVIEW</span>
+        <span>RF</span>
+      </div>
+    </div>
+  </div>
 
-🔗 [View on GitHub](https://github.com/nabidhn/digital-communication-simulations)
+  <!-- MATLAB Digital Comms -->
+  <div class="project-card">
+    <img src="images/digital_comms.png" alt="Digital Communication Systems">
+    <div class="project-content">
+      <h3>Digital Communication System Simulations</h3>
+      <p>
+        MATLAB-based simulations of QAM, PSK, and OFDM systems with BER analysis
+        under AWGN and fading channels.
+      </p>
+      <div class="tags">
+        <span>MATLAB</span>
+        <span>QAM</span>
+        <span>PSK</span>
+        <span>OFDM</span>
+      </div>
+    </div>
+  </div>
 
----
+  <!-- GPS Receiver -->
+  <div class="project-card">
+    <img src="images/gps_receiver.png" alt="GPS Receiver Simulink">
+    <div class="project-content">
+      <h3>Software-Based GPS Receiver</h3>
+      <p>
+        Complete GPS receiver chain designed in Simulink, including signal
+        acquisition, tracking loops, and navigation solution.
+      </p>
+      <div class="tags">
+        <span>Simulink</span>
+        <span>GPS</span>
+        <span>Signal Processing</span>
+      </div>
+    </div>
+  </div>
 
-## 📶 Single-Carrier M-QAM under Frequency-Selective Fading
-- Channel modeling
-- Phase noise simulation
-- BER performance comparison  
+  <!-- Single Carrier M-QAM -->
+  <div class="project-card">
+    <img src="images/mqam.png" alt="Single Carrier M-QAM">
+    <div class="project-content">
+      <h3>Single-Carrier M-QAM under Fading</h3>
+      <p>
+        Performance evaluation of single-carrier M-QAM systems under
+        frequency-selective fading and phase noise impact on symbol detection.
+      </p>
+      <div class="tags">
+        <span>M-QAM</span>
+        <span>Fading</span>
+        <span>Phase Noise</span>
+        <span>BER</span>
+      </div>
+    </div>
+  </div>
 
-🔗 [View on GitHub](https://github.com/nabidhn/single-carrier-mqam)
+  <!-- AM Transmitter -->
+  <div class="project-card">
+    <img src="images/am_transmitter.png" alt="AM Transmitter">
+    <div class="project-content">
+      <h3>AM Transmitter Design</h3>
+      <p>
+        Design and implementation of an AM transmitter with emphasis on
+        modulation theory, spectral analysis, and RF communication principles.
+      </p>
+      <div class="tags">
+        <span>AM</span>
+        <span>Modulation</span>
+        <span>RF</span>
+        <span>DSP</span>
+      </div>
+    </div>
+  </div>
 
----
+</div>
 
-## 📻 SDR Communication Chain (USRP)
-- Real-time TX/RX
-- Hardware–software integration
-- RF impairment analysis  
-
-🔗 [View on GitHub](https://github.com/nabidhn/sdr-communication-chain)
-
----
-
-## 📢 AM Transmitter Design
-- Spectral analysis
-- Modulation theory
-- RF fundamentals  
-
-🔗 [View on GitHub](https://github.com/nabidhn/am-transmitter)
