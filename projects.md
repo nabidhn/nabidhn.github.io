@@ -123,5 +123,31 @@ title: Projects
   </div>
 </div>
 
+<!-- WordPress Cloud + Disaster Recovery Project -->
+<div class="project-card">
+  <img src="images/wordpress_cloud_dr.png" alt="WordPress Cloud Disaster Recovery">
+  <div class="project-content">
+    <h3>
+      <a href="wordpress-cloud-disaster-recovery.html">
+        Cloud-Hosted WordPress Platform with Disaster Recovery
+      </a>
+    </h3>
+    <p>
+      Production-style WordPress deployment on CSC cPouta with isolated web and
+      database tiers, HTTPS, persistent storage, and full MySQL disaster
+      recovery from backup.
+    </p>
+    <div class="tags">
+      <span>Cloud</span>
+      <span>WordPress</span>
+      <span>OpenStack</span>
+      <span>Disaster Recovery</span>
+      <span>MySQL</span>
+      <span>Nginx</span>
+      <span>Linux</span>
+      <span>SSL</span>
+    </div>
+  </div>
+</div>
 
 </div>
