@@ -98,7 +98,7 @@ title: Projects
 
 <!-- Kubernetes Cloud Infrastructure Project -->
 <div class="project-card">
-  <img src="images/kubernetes_cloud.png" alt="Kubernetes Cloud Infrastructure">
+  <img src="images/Screenshot_20260203_151516-1.png" alt="Kubernetes Cloud Infrastructure">
   <div class="project-content">
     <h3>
       <a href="kubernetes-ecommerce.html">
