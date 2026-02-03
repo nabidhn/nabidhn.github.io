@@ -27,7 +27,7 @@ title: Projects
 
   <!-- MATLAB Digital Comms -->
   <div class="project-card">
-    <img src="images/digital_comms.png" alt="Digital Communication Systems">
+    <img src="images/Screenshot_20260203_222500.png" alt="Digital Communication Systems">
     <div class="project-content">
       <h3>Digital Communication System Simulations</h3>
       <p>
