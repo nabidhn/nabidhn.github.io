@@ -1,0 +1,171 @@
+---
+layout: default
+title: Kubernetes-Based Cloud Infrastructure
+---
+
+<article class="project-detail">
+
+  <h1>☸️ Kubernetes-Based Cloud Infrastructure for Scalable E-Commerce Platform</h1>
+
+  <p class="project-intro">
+    This project involved designing, deploying, and operating a fully functional
+    Kubernetes-based cloud infrastructure from scratch. The goal was to build a
+    production-style container orchestration environment capable of running a
+    scalable e-commerce application with persistent storage, load balancing,
+    and external access.
+  </p>
+
+  <p>
+    The environment was deployed on <strong>CSC cPouta cloud</strong> using
+    <strong>Infrastructure as Code</strong>, container orchestration, and
+    cloud-native tooling. The final result was a working
+    <strong>EverShop e-commerce platform</strong> backed by a PostgreSQL database,
+    exposed to the internet via an Nginx load balancer and Kubernetes Ingress.
+  </p>
+
+  <hr>
+
+  <h2>🏗 Architecture Summary</h2>
+
+  <p>The system was built using a multi-node Kubernetes cluster with clear separation of concerns:</p>
+
+  <ul>
+    <li><strong>Rancher Server</strong> – Centralized Kubernetes cluster management</li>
+    <li><strong>Kubernetes Master Node</strong> – Control plane, etcd, and scheduling</li>
+    <li><strong>Kubernetes Worker Node</strong> – Application workloads</li>
+    <li><strong>Nginx Load Balancer</strong> – Public entry point for HTTP traffic</li>
+    <li><strong>NFS Server</strong> – Persistent shared storage for databases and application data</li>
+  </ul>
+
+  <p>The cluster used:</p>
+
+  <ul>
+    <li>Public and private virtual networks</li>
+    <li>Security groups with controlled ingress rules</li>
+    <li>Persistent volumes for data durability</li>
+  </ul>
+
+  <hr>
+
+  <h2>🧰 Key Technologies</h2>
+
+  <ul class="tech-list">
+    <li><strong>Terraform</strong> – Infrastructure provisioning</li>
+    <li><strong>Docker</strong> – Container runtime and service packaging</li>
+    <li><strong>Kubernetes</strong> – Container orchestration</li>
+    <li><strong>Rancher</strong> – Kubernetes lifecycle management</li>
+    <li><strong>Helm</strong> – Application packaging and deployment</li>
+    <li><strong>Nginx</strong> – Load balancing and ingress routing</li>
+    <li><strong>NFS</strong> – Persistent shared storage</li>
+    <li><strong>PostgreSQL</strong> – Relational database backend</li>
+    <li><strong>Ubuntu 22.04</strong> – Base operating system</li>
+  </ul>
+
+  <hr>
+
+  <h2>⚙️ Infrastructure Provisioning</h2>
+
+  <ul>
+    <li>Automated cloud infrastructure creation using <strong>Terraform</strong></li>
+    <li>Custom public and private virtual networks</li>
+    <li>Security groups for SSH, HTTP, HTTPS, and internal cluster traffic</li>
+    <li>Persistent storage volumes for stateful workloads</li>
+  </ul>
+
+  <p>
+    This approach ensured the entire environment was reproducible and could be
+    destroyed and rebuilt reliably.
+  </p>
+
+  <hr>
+
+  <h2>☸️ Kubernetes Cluster Deployment</h2>
+
+  <ul>
+    <li>Rancher deployed on a dedicated server using Docker</li>
+    <li>Custom Kubernetes cluster created and managed via Rancher</li>
+    <li>Master and worker nodes registered with correct roles</li>
+    <li>Cluster access configured using <code>kubectl</code> and KubeConfig</li>
+    <li>Helm installed and version-matched to the cluster</li>
+  </ul>
+
+  <hr>
+
+  <h2>🌐 Load Balancing & Ingress</h2>
+
+  <ul>
+    <li>Nginx deployed as a Dockerized load balancer</li>
+    <li>Incoming HTTP traffic routed to Kubernetes nodes</li>
+    <li>Kubernetes <strong>Ingress</strong> resources exposed internal services</li>
+    <li>Host-based routing enabled multiple applications on one public IP</li>
+  </ul>
+
+  <p><strong>Example routing:</strong></p>
+
+  <ul>
+    <li><code>pacman.example.com</code> → Demo workload</li>
+    <li><code>evershop.example.com</code> → E-commerce platform</li>
+  </ul>
+
+  <hr>
+
+  <h2>💾 Persistent Storage with NFS</h2>
+
+  <ul>
+    <li>NFS server configured on persistent cloud storage</li>
+    <li>Kubernetes nodes mounted shared NFS volumes</li>
+    <li>NFS Subdir External Provisioner deployed</li>
+    <li>Custom default <code>StorageClass</code> configured</li>
+  </ul>
+
+  <p>
+    This enabled stateful workloads such as PostgreSQL and EverShop
+    to persist data independently of pods.
+  </p>
+
+  <hr>
+
+  <h2>🚀 Application Deployment</h2>
+
+  <h3>Demo Workload</h3>
+  <ul>
+    <li>Pac-Man container deployed</li>
+    <li>Exposed via Kubernetes Service and Ingress</li>
+    <li>External access verified</li>
+  </ul>
+
+  <h3>E-Commerce Platform</h3>
+  <ul>
+    <li>PostgreSQL deployed using Helm</li>
+    <li>Database users and permissions configured</li>
+    <li>EverShop deployed using a customized Helm chart</li>
+    <li>Environment variables configured for DB connectivity</li>
+    <li>Admin interface initialized and tested</li>
+    <li>Orders created and managed via web UI</li>
+  </ul>
+
+  <hr>
+
+  <h2>📚 Key Learnings</h2>
+
+  <ul>
+    <li>Designing Kubernetes infrastructure from the ground up</li>
+    <li>Managing stateful workloads in Kubernetes</li>
+    <li>Integrating ingress, load balancers, and storage</li>
+    <li>Using Helm for complex deployments</li>
+    <li>Debugging networking, storage, and service discovery issues</li>
+    <li>Understanding production Kubernetes operational complexity</li>
+  </ul>
+
+  <hr>
+
+  <h2>✅ Outcome</h2>
+
+  <p>
+    The project delivered a fully operational Kubernetes cluster hosting
+    a real e-commerce application with persistent storage, load balancing,
+    and external accessibility. It provided deep hands-on experience with
+    cloud infrastructure, container orchestration, and DevOps practices.
+  </p>
+
+</article>
