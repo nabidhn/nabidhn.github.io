@@ -1,0 +1,124 @@
+---
+layout: default
+title: WordPress Cloud Platform with Disaster Recovery
+---
+
+<article class="project-detail">
+
+  <h1>☁️ Cloud-Hosted WordPress Platform with Disaster Recovery</h1>
+
+  <p class="project-intro">
+    This project demonstrates the design, deployment, and recovery of a
+    production-style WordPress platform hosted in a cloud environment.
+    The system was built with security, reliability, and operational
+    resilience in mind.
+  </p>
+
+  <p>
+    The environment was deployed on <strong>CSC cPouta (OpenStack)</strong>
+    using Ubuntu virtual machines, cloud networking, and persistent storage.
+    A real-world failure scenario was later introduced, requiring full
+    restoration of the MySQL database without redeploying WordPress.
+  </p>
+
+  <hr>
+
+  <h2>🏗 Architecture Overview</h2>
+
+  <ul>
+    <li><strong>Web Server (VM1)</strong> – Nginx, PHP-FPM, WordPress, public + private network</li>
+    <li><strong>Database Server (VM2)</strong> – MySQL, private network only</li>
+    <li><strong>Persistent Volume</strong> – OpenStack block storage for database data</li>
+    <li><strong>Security Groups</strong> – Controlled SSH, HTTP, HTTPS, and MySQL access</li>
+  </ul>
+
+  <p>
+    This two-tier architecture isolates the database from the public internet
+    while allowing secure internal communication between services.
+  </p>
+
+  <hr>
+
+  <h2>🧰 Technologies Used</h2>
+
+  <ul>
+    <li>OpenStack (CSC cPouta)</li>
+    <li>Ubuntu 22.04</li>
+    <li>Nginx</li>
+    <li>PHP-FPM</li>
+    <li>MySQL</li>
+    <li>WordPress</li>
+    <li>Persistent Volumes</li>
+    <li>SSL / TLS</li>
+  </ul>
+
+  <hr>
+
+  <h2>🌐 WordPress Production Deployment</h2>
+
+  <ul>
+    <li>Configured Nginx and PHP-FPM for WordPress</li>
+    <li>Connected WordPress to a remote MySQL database</li>
+    <li>Hardened MySQL using secure installation practices</li>
+    <li>Created role-based WordPress users</li>
+    <li>Validated public access via browser and CLI tools</li>
+  </ul>
+
+  <hr>
+
+  <h2>🔐 HTTPS & Security</h2>
+
+  <ul>
+    <li>Generated and deployed a self-signed SSL certificate</li>
+    <li>Configured Nginx for HTTPS-only access</li>
+    <li>Verified encrypted traffic and certificate behavior</li>
+  </ul>
+
+  <p>
+    This provided practical understanding of TLS encryption,
+    certificate trust models, and HTTPS deployment.
+  </p>
+
+  <hr>
+
+  <h2>🚨 Disaster Recovery Scenario</h2>
+
+  <p>
+    A failure scenario was introduced where the MySQL database was
+    accidentally destroyed, rendering the WordPress site unavailable.
+  </p>
+
+  <h3>Recovery Process</h3>
+
+  <ul>
+    <li>Attached an existing persistent volume backup to the database server</li>
+    <li>Restored MySQL data without rebuilding the environment</li>
+    <li>Reconnected WordPress to the recovered database</li>
+    <li>Updated site URL values directly using SQL queries</li>
+    <li>Verified full website functionality and data integrity</li>
+  </ul>
+
+  <hr>
+
+  <h2>📚 Key Learnings</h2>
+
+  <ul>
+    <li>Designing secure cloud architectures</li>
+    <li>Operating WordPress in production environments</li>
+    <li>Managing relational databases in the cloud</li>
+    <li>Performing disaster recovery using persistent storage</li>
+    <li>Restoring services without application redeployment</li>
+  </ul>
+
+  <hr>
+
+  <h2>✅ Outcome</h2>
+
+  <p>
+    The project delivered a fully operational WordPress platform and
+    demonstrated a complete disaster recovery workflow.
+    It reflects real-world cloud engineering and DevOps practices,
+    including failure handling and service restoration.
+  </p>
+
+</article>
