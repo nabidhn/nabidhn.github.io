@@ -96,5 +96,27 @@ title: Projects
     </div>
   </div>
 
-</div>
+  <!-- Kubernetes Cloud Infrastructure Project -->
+  <div class="project-card">
+    <img src="images/kubernetes_cloud.png" alt="Kubernetes Cloud Infrastructure">
+    <div class="project-content">
+      <h3>Kubernetes-Based Cloud Infrastructure for Scalable E-Commerce</h3>
+      <p>
+        Production-style Kubernetes infrastructure deployed on CSC cPouta,
+        hosting a scalable EverShop e-commerce platform with PostgreSQL,
+        persistent storage, and Nginx-based ingress and load balancing.
+      </p>
+      <div class="tags">
+        <span>Kubernetes</span>
+        <span>Terraform</span>
+        <span>Docker</span>
+        <span>Rancher</span>
+        <span>Helm</span>
+        <span>Nginx</span>
+        <span>PostgreSQL</span>
+        <span>Cloud</span>
+      </div>
+    </div>
+  </div>
 
+</div>
