@@ -172,5 +172,3 @@
 
 
 
-
-Welcome to my portfolio 🚀
