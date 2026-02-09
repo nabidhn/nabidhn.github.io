@@ -64,7 +64,11 @@ title: Projects
   <div class="project-card">
     <img src="images/Screenshot_20260209_134633.png" alt="Single Carrier M-QAM">
     <div class="project-content">
-      <h3>Single-Carrier M-QAM under Fading</h3>
+      <h3>
+        <a href="comm_theory_project.html">
+           Single-Carrier M-QAM under Fading
+        </a>
+      </h3>
       <p>
         Performance evaluation of single-carrier M-QAM systems under
         frequency-selective fading and phase noise impact on symbol detection.
