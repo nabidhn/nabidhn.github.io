@@ -9,7 +9,7 @@ title: Projects
 
   <!-- SDR Project -->
   <div class="project-card">
-    <img src="images/sdr_usrp.png" alt="SDR USRP Project">
+    <img src="images/NI-Ettus-X300.jpeg" alt="SDR USRP Project">
     <div class="project-content">
       <h3>Software-Defined Radio Communication Chain</h3>
       <p>
@@ -80,7 +80,7 @@ title: Projects
 
   <!-- AM Transmitter -->
   <div class="project-card">
-    <img src="images/am_transmitter.png" alt="AM Transmitter">
+    <img src="images/amtx.gif" alt="AM Transmitter">
     <div class="project-content">
       <h3>AM Transmitter Design</h3>
       <p>
@@ -125,7 +125,7 @@ title: Projects
 
 <!-- WordPress Cloud + Disaster Recovery Project -->
 <div class="project-card">
-  <img src="images/Screenshot_20260201_122536.png" alt="WordPress Cloud Disaster Recovery">
+  <img src="images/Screenshot_20260209_134122.png" alt="WordPress Cloud Disaster Recovery">
   <div class="project-content">
     <h3>
       <a href="wordpress-cloud-disaster-recovery.html">
