@@ -109,23 +109,13 @@
     <p>High-Availability Design & Disaster Recovery Implementation</p>
     <div class="meta-info">
         <span><strong>Platform:</strong> CSC cPouta (OpenStack)</span>
-        <span><strong>Course:</strong> Cloud Platforms</span>
     </div>
 </header>
 
 <div class="container">
     <section id="overview">
-        <p class="project-intro">
-            This project demonstrates the design, deployment, and recovery of a production-style WordPress platform. 
-            The system was built with security, reliability, and operational resilience in mind, utilizing a 
-            two-tier architecture to isolate sensitive data from the public internet.
-        </p>
-
         <h2>🏗 Architecture Overview</h2>
         <p>The infrastructure utilizes <strong>Ubuntu 22.04 VMs</strong> within the OpenStack environment:</p>
-        
-        
-
         <ul>
             <li><strong>Web Server (VM1):</strong> Runs Nginx and PHP-FPM. Connected to both public and private networks.</li>
             <li><strong>Database Server (VM2):</strong> Hosts the MySQL instance. Isolated on a <strong>private-only</strong> network for security.</li>
@@ -158,11 +148,13 @@
 
         <h3>Security Verification</h3>
         <pre>
-# Verifying secure database connectivity from Web VM
-$ mysql -h 192.168.1.15 -u wp_user -p
-
-# Checking SSL Certificate Handshake
-$ curl -Iv https://wordpress.example.com</pre>
+        HTTP/1.1 200 OK
+        Server: nginx/1.18.0 (Ubuntu)
+        Date: Thu, 20 Nov 2025 19:31:13 GMT
+        Content-Type: text/html; charset=UTF-8
+        Connection: keep-alive
+        Link: <http://fip-86-50-21-193.kaj.poutavm.fi/index.php?rest_route=/>; rel="https://api.w.org/"
+        </pre>
     </section>
 
     <hr>
@@ -183,24 +175,11 @@ $ curl -Iv https://wordpress.example.com</pre>
         </ol>
 
         <pre>
--- Example SQL used during recovery
-UPDATE wp_options SET option_value = 'https://new-ip-address' 
-WHERE option_name = 'siteurl' OR option_name = 'home';</pre>
+            <img src="images/Screenshot_20260209_180820.png" alt="Appendix">
+        </pre>
     </section>
 
-    <section id="learnings">
-        <h2>📚 Key Learnings</h2>
-        <ul>
-            <li>Practical experience in <strong>Decoupled Architecture</strong> (separating Web and DB layers).</li>
-            <li>Understanding the lifecycle of <strong>Cloud Block Storage</strong> and its role in persistence.</li>
-            <li>Hands-on <strong>TLS/SSL Configuration</strong> and troubleshooting certificate trust models.</li>
-            <li>Critical thinking under pressure during simulated <strong>Disaster Recovery</strong>.</li>
-        </ul>
     </section>
-</div>
-
-<div class="footer">
-    <p>&copy; 2026 Project Portfolio - Cloud-Hosted WordPress Exercise - Tampere University</p>
 </div>
 
 </body>
