@@ -45,7 +45,7 @@ title: Projects
 
   <!-- GPS Receiver -->
   <div class="project-card">
-    <img src="images/gps_receiver.png" alt="GPS Receiver Simulink">
+    <img src="images/Screenshot_20260209_140444.png" alt="GPS Receiver Simulink">
     <div class="project-content">
       <h3>Software-Based GPS Receiver</h3>
       <p>
@@ -62,7 +62,7 @@ title: Projects
 
   <!-- Single Carrier M-QAM -->
   <div class="project-card">
-    <img src="images/mqam.png" alt="Single Carrier M-QAM">
+    <img src="images/Screenshot_20260209_134633.png" alt="Single Carrier M-QAM">
     <div class="project-content">
       <h3>Single-Carrier M-QAM under Fading</h3>
       <p>
@@ -125,7 +125,7 @@ title: Projects
 
 <!-- WordPress Cloud + Disaster Recovery Project -->
 <div class="project-card">
-  <img src="images/wordpress_cloud_dr.png" alt="WordPress Cloud Disaster Recovery">
+  <img src="images/Screenshot_20260201_122536.png" alt="WordPress Cloud Disaster Recovery">
   <div class="project-content">
     <h3>
       <a href="wordpress-cloud-disaster-recovery.html">
