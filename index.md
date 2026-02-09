@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -97,8 +96,8 @@
 
     <nav class="terminal-nav">
         <div class="nav-links">
-            <a href="projects.md">./Projects</a>
-            <a href="contact.md">./Contact</a>
+            <a href="projects">./Projects</a>
+            <a href="contact">./Contact</a>
         </div>
         <div class="status">
             <span class="prompt">STATUS:</span> ACTIVE_RESEARCHER
@@ -106,11 +105,8 @@
     </nav>
 
     <header class="hero">
-        <h1>./Nabid Hasan's Portfolio</h1>
-        <p class="tagline"> Wireless Communications, Signal Processing, Machine Learning, CLoud Technologies</p>
-        
         <div class="about-section">
-            <p><span class="prompt">guest@tuni:~$</span> cat intro.txt</p>
+            <p><span class="prompt">nabid@debian:~$</span> cat intro.txt</p>
             <p>
                👋 I’m an MSc student in Wireless Communication and RF Systems at Tampere University, specializing in GNSS positioning, 5G/Cloud RAN, and Machine Learning for communication systems.
 
@@ -118,7 +114,6 @@
 
                 I am also proficient in Python, MATLAB, and C/C++. I am experienced in managing Linux environments (RedHat/Debian) and automating infrastructure with Ansible and Terraform. I specialize in deploying                    containerized applications via Docker and Kubernetes across AWS, Azure, GCP and CSC cloud platforms, utilizing MLOps and CI/CD pipelines to move services from experimentation to reliable production.
             </p>
-            <a href="#" class="github-btn">View on GitHub</a>
         </div>
     </header>
 
