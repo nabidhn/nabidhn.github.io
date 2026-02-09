@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Elementary Single-Carrier M-QAM Digital Communication Chain</title>
+    <style>
+        :root {
+            --primary-bg: #f8fafc;
+            --header-bg: #0f172a;
+            --accent-blue: #3b82f6;
+            --text-main: #1e293b;
+            --code-bg: #1e1e1e;
+            --code-text: #d4d4d4;
+            --math-blue: #2563eb;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-main);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--primary-bg);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 50px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+
+        h1 { font-size: 2.2rem; margin-bottom: 0.5rem; letter-spacing: -0.025em; }
+        h2 {
+            color: var(--header-bg);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 60px;
+        }
+        h3 { color: var(--accent-blue); margin-top: 35px; }
+
+        .project-summary {
+            background: #eff6ff;
+            border-left: 4px solid var(--accent-blue);
+            padding: 20px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            border: 1px solid #334155;
+        }
+
+        .task-box {
+            background-color: #f1f5f9;
+            border: 1px dashed #94a3b8;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .task-box h4 { margin-top: 0; color: #475569; text-transform: uppercase; font-size: 0.8rem; }
+
+        .system-params {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .system-params td, .system-params th {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .system-params th { background-color: #f8fafc; }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #64748b;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>COMM.SYS.300 Communication Theory</h1>
+    <p>Experimenting an Elementary Single-Carrier M-QAM Digital Communication Chain</p>
+    <div style="margin-top:20px; opacity: 0.8;">Fall 2025 | Project Work Submission</div>
+</header>
+
+<div class="container">
+    <section class="project-summary">
+        <strong>Project Scope:</strong> This work explores the end-to-end processing of a QAM-based digital communication system. We analyze the impact of frequency-selective multipath channels, additive white Gaussian noise (AWGN), and receiver oscillator phase noise on signal integrity and spectral characteristics.
+    </section>
+
+    <section id="system-model">
+        <h2>1. System Model & Parameters</h2>
+        <p>The system utilizes a baseband equivalent approach, focusing on transmit pulse shaping (RRC), linear channel distortions, and receiver filtering.</p>
+
+        
+
+        <table class="system-params">
+            <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Symbol Rate (R)</td>
+                <td>10 MHz</td>
+                <td>Rate of information transfer</td>
+            </tr>
+            <tr>
+                <td>Oversampling (r)</td>
+                <td>4</td>
+                <td>Samples per symbol pulse</td>
+            </tr>
+            <tr>
+                <td>Modulation</td>
+                <td>16-QAM / M-QAM</td>
+                <td>Quadrature Amplitude Modulation order</td>
+            </tr>
+            <tr>
+                <td>Pulse Filter</td>
+                <td>Root-Raised Cosine</td>
+                <td>Roll-off factor α = 0.20</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="transmitter">
+        <h2>2. Transmitter Processing</h2>
+        <p>Transmitter processing involves mapping random bits to QAM symbols followed by upsampling and RRC filtering to constrain the signal bandwidth.</p>
+        
+        <pre>
+% Pulse Shaping Implementation
+alpha = 0.20; 
+N_symbols_per_pulse = 40;
+gt = rcosdesign(alpha, N_symbols_per_pulse, r, 'sqrt');
+xt = filter(gt, 1, symbols_upsampled);</pre>
+
+        <div class="task-box">
+            <h4>Task 1 Analysis</h4>
+            <p>Observing the TX spectrum confirms the bandwidth occupancy of approximately $(1+\alpha)R$. The use of RRC filtering minimizes Inter-Symbol Interference (ISI) while ensuring spectral efficiency.</p>
+        </div>
+    </section>
+
+    <section id="channel">
+        <h2>3. Channel Impairments</h2>
+        <p>We modeled three distinct channel profiles (b1, b2, b3) ranging from an ideal line-of-sight to a harsh frequency-selective multipath environment.</p>
+
+        
+
+        <h3>Fading and Noise Scaling</h3>
+        <p>A critical component of this project is understanding the scaling of noise relative to the oversampling factor. The noise scaling factor accounts for the wider bandwidth of the noise compared to the limited bandwidth of the pulse-shaped signal.</p>
+        
+        <pre>
+% Noise Scaling logic
+noise_scaling_factor = sqrt(P_y/P_n ./ 10.^(SNRdB./10) * (r/(1+alpha)));</pre>
+
+        <div class="task-box">
+            <h4>Task 2 Observations</h4>
+            <ul>
+                <li><strong>Multipath:</strong> Fading notches appear in the spectrum where destructive interference occurs between different propagation paths.</li>
+                <li><strong>SNR:</strong> At low SNR (e.g., 0-10 dB), the noise floor rises, potentially masking the signal spectrum and closing the "eye" of the constellation.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="receiver">
+        <h2>4. Receiver Processing & Constellation Analysis</h2>
+        <p>The receiver filters the incoming signal to maximize SNR (matched filtering) and samples the output at the symbol rate to recover the transmitted constellation.</p>
+
+        <h3>Constellation Visualization</h3>
+        <p>By comparing the 16-QAM received samples against the ideal grid, we can visually assess the system performance.</p>
+
+        
+
+        <div class="task-box">
+            <h4>Task 3 Findings</h4>
+            <p>Under <strong>b1 (Ideal)</strong> at 35dB, the constellation is sharp. As SNR decreases to 10dB, the clusters expand and begin to overlap, leading to Bit Error Rate (BER) degradation. With <strong>multipath (b2/b3)</strong>, the constellation rotates and smears, demonstrating the need for channel equalization in a real-world receiver.</p>
+        </div>
+    </section>
+
+    <section id="phase-noise">
+        <h2>5. Receiver Phase Noise Impact</h2>
+        <p>Non-ideal oscillators introduce phase jitter, modeled here using a free-running oscillator bandwidth ($\beta$).</p>
+
+        <pre>
+% Applying Phase Noise
+Beta = 100; % Bandwidth in Hz
+pt = phasenoise(numel(xt), Fs, Beta);
+rt = xt .* pt;</pre>
+
+        <div class="task-box">
+            <h4>Task 4 Analysis</h4>
+            <p>Phase noise causes a <strong>circular rotation</strong> of the constellation points. While low $\beta$ (100 Hz) shows minimal impact, a high $\beta$ (5000 Hz) results in significant angular spreading, making symbol detection nearly impossible without carrier phase recovery.</p>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>This experimentation highlights the trade-offs between modulation order, bandwidth, and robustness. While higher QAM orders increase data rates, they require significantly higher SNR and better oscillator stability to maintain reliable communication.</p>
+    </section>
+</div>
+
+</body>
+</html>
