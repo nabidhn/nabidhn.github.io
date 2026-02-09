@@ -1,124 +1,207 @@
----
-layout: default
-title: WordPress Cloud Platform with Disaster Recovery
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio: Cloud-Hosted WordPress & Disaster Recovery</title>
+    <style>
+        :root {
+            --primary-bg: #f4f7f9;
+            --header-bg: #2c3e50;
+            --accent-orange: #e67e22;
+            --text-main: #333;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --danger-red: #c0392b;
+        }
 
-<article class="project-detail">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--primary-bg);
+        }
 
-  <h1>☁️ Cloud-Hosted WordPress Platform with Disaster Recovery</h1>
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
 
-  <p class="project-intro">
-    This project demonstrates the design, deployment, and recovery of a
-    production-style WordPress platform hosted in a cloud environment.
-    The system was built with security, reliability, and operational
-    resilience in mind.
-  </p>
+        .container {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0 0 8px 8px;
+        }
 
-  <p>
-    The environment was deployed on <strong>CSC cPouta (OpenStack)</strong>
-    using Ubuntu virtual machines, cloud networking, and persistent storage.
-    A real-world failure scenario was later introduced, requiring full
-    restoration of the MySQL database without redeploying WordPress.
-  </p>
+        h1 { margin-bottom: 0.5rem; }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid var(--accent-orange);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+        h3 { color: #d35400; margin-top: 30px; }
 
-  <hr>
+        .project-intro { font-size: 1.1rem; color: #555; margin-bottom: 2rem; }
+        
+        .tech-tag {
+            display: inline-block;
+            background: #eee;
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #444;
+        }
 
-  <h2>🏗 Architecture Overview</h2>
+        .recovery-box {
+            background-color: #fdf2f2;
+            border-left: 5px solid var(--danger-red);
+            padding: 20px;
+            margin: 20px 0;
+        }
 
-  <ul>
-    <li><strong>Web Server (VM1)</strong> – Nginx, PHP-FPM, WordPress, public + private network</li>
-    <li><strong>Database Server (VM2)</strong> – MySQL, private network only</li>
-    <li><strong>Persistent Volume</strong> – OpenStack block storage for database data</li>
-    <li><strong>Security Groups</strong> – Controlled SSH, HTTP, HTTPS, and MySQL access</li>
-  </ul>
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            margin: 15px 0;
+        }
 
-  <p>
-    This two-tier architecture isolates the database from the public internet
-    while allowing secure internal communication between services.
-  </p>
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
 
-  <hr>
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: #ecf0f1;
+            margin-top: 15px;
+        }
 
-  <h2>🧰 Technologies Used</h2>
+        hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
 
-  <ul>
-    <li>OpenStack (CSC cPouta)</li>
-    <li>Ubuntu 22.04</li>
-    <li>Nginx</li>
-    <li>PHP-FPM</li>
-    <li>MySQL</li>
-    <li>WordPress</li>
-    <li>Persistent Volumes</li>
-    <li>SSL / TLS</li>
-  </ul>
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
 
-  <hr>
+<header>
+    <h1>☁️ Cloud-Hosted WordPress Platform</h1>
+    <p>High-Availability Design & Disaster Recovery Implementation</p>
+    <div class="meta-info">
+        <span><strong>Platform:</strong> CSC cPouta (OpenStack)</span>
+        <span><strong>Course:</strong> Cloud Platforms</span>
+    </div>
+</header>
 
-  <h2>🌐 WordPress Production Deployment</h2>
+<div class="container">
+    <section id="overview">
+        <p class="project-intro">
+            This project demonstrates the design, deployment, and recovery of a production-style WordPress platform. 
+            The system was built with security, reliability, and operational resilience in mind, utilizing a 
+            two-tier architecture to isolate sensitive data from the public internet.
+        </p>
 
-  <ul>
-    <li>Configured Nginx and PHP-FPM for WordPress</li>
-    <li>Connected WordPress to a remote MySQL database</li>
-    <li>Hardened MySQL using secure installation practices</li>
-    <li>Created role-based WordPress users</li>
-    <li>Validated public access via browser and CLI tools</li>
-  </ul>
+        <h2>🏗 Architecture Overview</h2>
+        <p>The infrastructure utilizes <strong>Ubuntu 22.04 VMs</strong> within the OpenStack environment:</p>
+        
+        
 
-  <hr>
+        <ul>
+            <li><strong>Web Server (VM1):</strong> Runs Nginx and PHP-FPM. Connected to both public and private networks.</li>
+            <li><strong>Database Server (VM2):</strong> Hosts the MySQL instance. Isolated on a <strong>private-only</strong> network for security.</li>
+            <li><strong>Persistent Volume:</strong> OpenStack block storage attached to VM2 to ensure data survives server failure.</li>
+            <li><strong>Security Groups:</strong> Strict ingress rules (Port 22 for SSH, 80/443 for Web, and 3306 restricted to internal IPs).</li>
+        </ul>
+    </section>
 
-  <h2>🔐 HTTPS & Security</h2>
+    <section id="tech-stack">
+        <h2>🧰 Technologies Used</h2>
+        <div style="text-align: center; padding: 10px 0;">
+            <span class="tech-tag">OpenStack</span>
+            <span class="tech-tag">Nginx</span>
+            <span class="tech-tag">PHP-FPM</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">WordPress</span>
+            <span class="tech-tag">SSL/TLS</span>
+            <span class="tech-tag">Block Storage</span>
+        </div>
+    </section>
 
-  <ul>
-    <li>Generated and deployed a self-signed SSL certificate</li>
-    <li>Configured Nginx for HTTPS-only access</li>
-    <li>Verified encrypted traffic and certificate behavior</li>
-  </ul>
+    <section id="implementation">
+        <h2>🌐 Production Deployment & Security</h2>
+        <h3>WordPress Configuration</h3>
+        <ul>
+            <li>Optimized PHP-FPM socket communication for high performance.</li>
+            <li>Hardened MySQL using <code>mysql_secure_installation</code> and role-based access control.</li>
+            <li>Deployed self-signed SSL certificates to enable <strong>HTTPS-only</strong> traffic.</li>
+        </ul>
 
-  <p>
-    This provided practical understanding of TLS encryption,
-    certificate trust models, and HTTPS deployment.
-  </p>
+        <h3>Security Verification</h3>
+        <pre>
+# Verifying secure database connectivity from Web VM
+$ mysql -h 192.168.1.15 -u wp_user -p
 
-  <hr>
+# Checking SSL Certificate Handshake
+$ curl -Iv https://wordpress.example.com</pre>
+    </section>
 
-  <h2>🚨 Disaster Recovery Scenario</h2>
+    <hr>
 
-  <p>
-    A failure scenario was introduced where the MySQL database was
-    accidentally destroyed, rendering the WordPress site unavailable.
-  </p>
+    <section id="recovery">
+        <h2>🚨 Disaster Recovery Scenario</h2>
+        <div class="recovery-box">
+            <strong>The Incident:</strong> A critical failure occurred where the MySQL database was accidentally destroyed, rendering the WordPress site unavailable (Error establishing a database connection).
+        </div>
 
-  <h3>Recovery Process</h3>
+        <h3>The Recovery Process</h3>
+        <p>Instead of a full redeployment, a surgical restoration was performed:</p>
+        <ol>
+            <li><strong>Volume Attachment:</strong> Re-attached the existing persistent block storage volume to the Database VM.</li>
+            <li><strong>Mounting:</strong> Configured <code>/etc/fstab</code> to mount the volume to the MySQL data directory.</li>
+            <li><strong>SQL Correction:</strong> Used direct SQL queries to update <code>siteurl</code> and <code>home</code> values to match the restored environment.</li>
+            <li><strong>Validation:</strong> Verified data integrity and ensured all WordPress posts and media were intact.</li>
+        </ol>
 
-  <ul>
-    <li>Attached an existing persistent volume backup to the database server</li>
-    <li>Restored MySQL data without rebuilding the environment</li>
-    <li>Reconnected WordPress to the recovered database</li>
-    <li>Updated site URL values directly using SQL queries</li>
-    <li>Verified full website functionality and data integrity</li>
-  </ul>
+        <pre>
+-- Example SQL used during recovery
+UPDATE wp_options SET option_value = 'https://new-ip-address' 
+WHERE option_name = 'siteurl' OR option_name = 'home';</pre>
+    </section>
 
-  <hr>
+    <section id="learnings">
+        <h2>📚 Key Learnings</h2>
+        <ul>
+            <li>Practical experience in <strong>Decoupled Architecture</strong> (separating Web and DB layers).</li>
+            <li>Understanding the lifecycle of <strong>Cloud Block Storage</strong> and its role in persistence.</li>
+            <li>Hands-on <strong>TLS/SSL Configuration</strong> and troubleshooting certificate trust models.</li>
+            <li>Critical thinking under pressure during simulated <strong>Disaster Recovery</strong>.</li>
+        </ul>
+    </section>
+</div>
 
-  <h2>📚 Key Learnings</h2>
+<div class="footer">
+    <p>&copy; 2026 Project Portfolio - Cloud-Hosted WordPress Exercise - Tampere University</p>
+</div>
 
-  <ul>
-    <li>Designing secure cloud architectures</li>
-    <li>Operating WordPress in production environments</li>
-    <li>Managing relational databases in the cloud</li>
-    <li>Performing disaster recovery using persistent storage</li>
-    <li>Restoring services without application redeployment</li>
-  </ul>
-
-  <hr>
-
-  <h2>✅ Outcome</h2>
-
-  <p>
-    The project delivered a fully operational WordPress platform and
-    demonstrated a complete disaster recovery workflow.
-    It reflects real-world cloud engineering and DevOps practices,
-    including failure handling and service restoration.
-  </p>
-
-</article>
+</body>
+</html>
