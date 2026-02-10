@@ -154,4 +154,27 @@ title: Projects
   </div>
 </div>
 
+<div class="project-card">
+    <img src="images/Screenshot_20260210_193953.png" alt="Hotel Management System">
+    <div class="project-content">
+      <h3>
+        <a href="hotel-management-cpp.html">
+          Modular Hotel Management System
+        </a>
+      </h3>
+      <p>
+        An object-oriented C++ application utilizing smart pointers (shared_ptr) 
+        and STL containers to manage room allocations, guest visits, and 
+        historical data with robust memory safety.
+      </p>
+      <div class="tags">
+        <span>C++</span>
+        <span>Smart Pointers</span>
+        <span>OOP</span>
+        <span>STL</span>
+        <span>Memory Management</span>
+      </div>
+    </div>
+  </div>
+
 </div>
