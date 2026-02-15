@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio: Kubernetes-Based Cloud Infrastructure</title>
+    <title>Kubernetes-Based Cloud Infrastructure</title>
     <style>
         :root {
             --primary-bg: #f4f7f9;
@@ -140,70 +140,58 @@
 
     <hr>
 
-    <section id="technical-appendix">
+<section id="technical-appendix">
         <h2>⚙️ Implementation Details (Technical Appendix)</h2>
-        
-        <h3>1. Environment Verification</h3>
-        <p>Verification of the Kubernetes client, server versions, and cluster node status.</p>
-        <pre>
-$ kubectl version
-Client Version: v1.34.1
-Server Version: v1.34.1+rke2r1
-
-$ kubectl get nodes -o wide
-NAME           STATUS   ROLES                       AGE   INTERNAL-IP    OS-IMAGE
-kube-master    Ready    control-plane,etcd,worker   9h    192.168.2.55   Ubuntu 22.04.5 LTS
-kube-worker    Ready    worker                      9h    192.168.2.222  Ubuntu 22.04.5 LTS</pre>
-
-        <h3>2. Service Discovery & Ingress</h3>
-        <p>Testing external access via host-based routing.</p>
         <pre>
 $ cat /etc/hosts | grep example.com
 195.148.22.233 pacman.example.com
 195.148.22.233 evershop.example.com
 
+$ curl -s -D - evershop.example.com -o /dev/null | head -n 4
+HTTP/1.1 200 OK
+Date: Mon, 08 Dec 2025 20:13:48 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 30331</pre>
+
+        <h3>2. Service Discovery & Ingress</h3>
+        <p>Testing external access via host-based routing and ingress rules.</p>
+        <pre>
 $ kubectl describe ingress proxy-ingress-rancher
+Name:             proxy-ingress-rancher
+Namespace:        default
+Address:          192.168.1.125,192.168.1.63
+Ingress Class:    &lt;none&gt;
+Default backend:  &lt;default&gt;
 Rules:
   Host                  Path  Backends
   ----                  ----  --------
-  pacman.example.com    /     rancher-pacman:80
-  evershop.example.com  /     evershop:3000</pre>
+  pacman.example.com    /     rancher-pacman:80 (10.42.73.132:80)
+  evershop.example.com  /     evershop:3000 (10.42.73.136:3000)</pre>
 
         <h3>3. Persistent Storage (NFS)</h3>
-        <p>Configuring the NFS Subdir External Provisioner for stateful workloads.</p>
+        <p>Status of Persistent Volumes and Claims using the nfs-client storage class.</p>
         <pre>
-$ kubectl get pods -l app=nfs-client-provisioner
-NAME                                               READY   STATUS    AGE
-nfs-subdir-external-provisioner-67bc45968c-xhhvr   1/1     Running   7m2s
+$ kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                            STORAGECLASS   AGE
+pvc-8c8adbca-61dc-4c92-a112-7792b196eaab   8Gi        RWO            Delete           Bound    default/data-evershop-postgresdb-postgresql-0    nfs-client     6h31m
 
 $ kubectl get pvc
-NAME                                    STATUS   VOLUME                                     CAPACITY   STORAGECLASS
-data-evershop-postgresdb-postgresql-0   Bound    pvc-8c8adbca-61dc-4c92-a112-7792b196eaab   8Gi        nfs-client</pre>
+NAME                                            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+data-evershop-postgresdb-postgresql-0           Bound    pvc-8c8adbca-61dc-4c92-a112-7792b196eaab   8Gi        RWO            nfs-client     6h31m</pre>
 
         <h3>4. Application Services</h3>
-        <p>Final wide-view of the deployed e-commerce cluster services.</p>
+        <p>Final wide-view of the deployed e-commerce cluster services and their selectors.</p>
         <pre>
 $ kubectl get services -o wide
-NAME                    TYPE        CLUSTER-IP     PORT(S)     SELECTOR
-evershop                ClusterIP   10.43.248.28   3000/TCP    app-type=evershop
-evershop-postgresdb     ClusterIP   10.43.15.19    5432/TCP    app.kubernetes.io/instance=evershop
-rancher-pacman          ClusterIP   10.43.172.73   80/TCP      workload.user.cattle.io/...</pre>
+NAME                            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+evershop                        ClusterIP   10.43.248.28   &lt;none&gt;        3000/TCP   81m     app-type=evershop,app.kubernetes.io/name=evershop
+evershop-postgresdb-postgresql  ClusterIP   10.43.15.19    &lt;none&gt;        5432/TCP   6h32m   app.kubernetes.io/component=primary,app.kubernetes.io/instance=evershop-postgresdb,app.kubernetes.io/name=postgresql
+rancher-pacman                  ClusterIP   10.43.172.73   &lt;none&gt;        80/TCP     10h     workload.user.cattle.io/workloadselector=apps.deployment-default-rancher-pacman</pre>
     </section>
 
-    <section id="learnings">
-        <h2>📚 Key Learnings</h2>
-        <ul>
-            <li>Mastered the automation of infrastructure using Terraform and RKE2.</li>
-            <li>Implemented dynamic storage provisioning in a self-managed cluster.</li>
-            <li>Configured complex Ingress rules for multi-tenant application hosting.</li>
-            <li>Optimized containerized database performance with persistent volume tuning.</li>
-        </ul>
-    </section>
 </div>
 
-<div class="footer">
-    <p>&copy; 2026 Project Portfolio - Cloud Platforms Exercise 10 - Tampere University</p>
-</div>
+
 
 </body>
 </html>
