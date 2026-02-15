@@ -177,4 +177,27 @@ title: Projects
     </div>
   </div>
 
+<div class="project-card">
+    <img src="images/Screenshot_20260215_110311-1.png" alt="Disaster Risk Monitoring System">
+    <div class="project-content">
+      <h3>
+        <a href="disaster-monitoring-project.html">
+          Disaster Risk Monitoring Using Satellite Imagery
+        </a>
+      </h3>
+      <p>
+        A deep learning pipeline developed in collaboration with UNOSAT to automate flood detection. 
+        Utilizes transfer learning for semantic segmentation and hardware-accelerated tools to 
+        process large-scale satellite data for near real-time disaster response.
+      </p>
+      <div class="tags">
+        <span>Deep Learning</span>
+        <span>NVIDIA TAO</span>
+        <span>TensorRT</span>
+        <span>Triton Inference Server</span>
+        <span>Satellite Imagery</span>
+      </div>
+    </div>
+  </div>
+
 </div>
