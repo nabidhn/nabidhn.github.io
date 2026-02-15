@@ -108,11 +108,7 @@
         <div class="about-section">
             <p><span class="prompt">nabid@debian:~$</span> cat intro.txt</p>
             <p>
-               👋 I’m an MSc student in Wireless Communication and RF Systems at Tampere University, specializing in GNSS positioning, 5G/Cloud RAN, and Machine Learning for communication systems.
-
-                I enjoy working across the full stack of modern telecom systems. This includes physical layer fundamentals—such as Modulation, Channel Coding, and Equalization—as well as the deployment and                             optimization of Cloud RAN (vRAN) environments, focusing on Radio Resource Management and Network Security. On the positioning side, I apply practical GNSS techniques like PVT estimation, RTK/PPP, and                   interference detection using tools like RTKLIB.
-
-                I am also proficient in Python, MATLAB, and C/C++. I am experienced in managing Linux environments (RedHat/Debian) and automating infrastructure with Ansible and Terraform. I specialize in deploying                    containerized applications via Docker and Kubernetes across AWS, Azure, GCP and CSC cloud platforms, utilizing MLOps and CI/CD pipelines to move services from experimentation to reliable production.
+               👋 I’m an MSc student in Wireless Communication and RF Systems at Tampere University, specializing in GNSS positioning, 5G/Cloud RAN, and Machine Learning for communication systems. I enjoy working across the full stack of modern telecom systems. This includes physical layer fundamentals—such as Modulation, Channel Coding, and Equalization—as well as the deployment and optimization of Cloud RAN (vRAN) environments, focusing on Radio Resource Management and Network Security. I am also familiar with tools such as RTKLIB software, FGI-GSRx receiver, GNSSTk, gLAB for analyzing positioning data. I am comfortable working with MATLAB, Python, C/C++, UNIX/Linux environments, and cloud technologies. This includes managing Linux environments (Red Hat/Debian), automating infrastructure with Ansible and Terraform, deploying containerized applications using Docker and Kubernetes across AWS, Azure, GCP, and CSC cloud platforms, and implementing MLOps and CI/CD pipelines to move services from experimentation to reliable production.
             </p>
         </div>
     </header>
@@ -120,7 +116,7 @@
     <main class="grid-container">
         <div class="skill-card">
             <h3>📡 Wireless & RF</h3>
-            <p> Radio Access Network, 5G physical layers and GNSS </p>
+            <p> 5G, GNSS, Radio Network </p>
             <div class="tech-list">
                 <span class="tech-tag">5G NR</span>
                 <span class="tech-tag">OFDM</span>
@@ -130,6 +126,7 @@
                 <span class="tech-tag">GNSS Receiver</span>
                 <span class="tech-tag">MIMO</span>
                 <span class="tech-tag">Cloud RAN</span>
+                <span class="tech-tag">Software-defined Radio</span>
             </div>
         </div>
 
