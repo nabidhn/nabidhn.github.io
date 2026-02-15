@@ -170,14 +170,14 @@ xt = filter(gt, 1, symbols_upsampled);</pre>
         
 
         <h3>Fading and Noise Scaling</h3>
-        <p>A critical component of this project is understanding the scaling of noise relative to the oversampling factor. The noise scaling factor accounts for the wider bandwidth of the noise compared to the limited bandwidth of the pulse-shaped signal.</p>
+        <p>A critical component of this project was understanding the scaling of noise relative to the oversampling factor. The noise scaling factor accounts for the wider bandwidth of the noise compared to the limited bandwidth of the pulse-shaped signal.</p>
         
         <pre>
 % Noise Scaling logic
 noise_scaling_factor = sqrt(P_y/P_n ./ 10.^(SNRdB./10) * (r/(1+alpha)));</pre>
 
         <div class="task-box">
-            <h4>Task 2 Observations</h4>
+            <h4>Observations</h4>
             <ul>
                 <li><strong>Multipath:</strong> Fading notches appear in the spectrum where destructive interference occurs between different propagation paths.</li>
                 <li><strong>SNR:</strong> At low SNR (e.g., 0-10 dB), the noise floor rises, potentially masking the signal spectrum and closing the "eye" of the constellation.</li>
@@ -211,7 +211,7 @@ pt = phasenoise(numel(xt), Fs, Beta);
 rt = xt .* pt;</pre>
 
         <div class="task-box">
-            <h4>Task 4 Analysis</h4>
+            <h4>Analysis</h4>
             <p>Phase noise causes a <strong>circular rotation</strong> of the constellation points. While low $\beta$ (100 Hz) shows minimal impact, a high $\beta$ (5000 Hz) results in significant angular spreading, making symbol detection nearly impossible without carrier phase recovery.</p>
         </div>
     </section>
