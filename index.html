@@ -9,13 +9,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green: #2e8b00;
-      --red: #c0001a;
+      --orange: #d4570a;
+      --silver: #8a939e;
       --text: #1a1a1a;
-      --muted: #555;
-      --border: #ddd;
+      --muted: #5e6773;
+      --border: #dde1e6;
       --bg: #ffffff;
-      --tag-bg: #f0f0f0;
+      --tag-bg: #f0f2f4;
       --font-mono: 'Inconsolata', monospace;
       --font-body: 'Lora', Georgia, serif;
     }
@@ -44,8 +44,8 @@
       text-decoration: none;
       line-height: 1;
     }
-    .logo .g { color: var(--green); }
-    .logo .r { color: var(--red); }
+    .logo .o { color: var(--orange); }
+    .logo .s { color: var(--silver); }
 
     nav {
       margin-top: 1.2rem;
@@ -61,7 +61,7 @@
       text-decoration: none;
       transition: color 0.15s;
     }
-    nav a:hover { color: var(--green); }
+    nav a:hover { color: var(--orange); }
 
     .nav-divider {
       border: none;
@@ -81,9 +81,9 @@
     .status-badge {
       font-family: var(--font-mono);
       font-size: 0.78rem;
-      color: var(--muted);
+      color: var(--silver);
     }
-    .status-badge span { color: var(--green); font-weight: 700; }
+    .status-badge span { color: var(--orange); font-weight: 700; }
 
     /* ── Page title ── */
     .page-title {
@@ -112,7 +112,7 @@
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--muted);
+      color: var(--silver);
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
@@ -135,7 +135,7 @@
     .prompt {
       font-family: var(--font-mono);
       font-size: 0.88rem;
-      color: var(--green);
+      color: var(--orange);
       margin-bottom: 0.7rem;
     }
     .intro-card p.body {
@@ -158,8 +158,8 @@
       transition: box-shadow 0.18s, border-color 0.18s;
     }
     .card:hover {
-      box-shadow: 0 3px 14px rgba(0,0,0,0.08);
-      border-color: #bbb;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+      border-color: #b8bfc8;
     }
     .card-title {
       font-family: var(--font-mono);
@@ -171,7 +171,7 @@
     .card-desc {
       font-family: var(--font-body);
       font-size: 0.88rem;
-      color: var(--muted);
+      color: var(--silver);
       font-style: italic;
       margin-bottom: 0.9rem;
     }
@@ -205,8 +205,8 @@
       transition: box-shadow 0.18s, border-color 0.18s;
     }
     .link-card:hover {
-      box-shadow: 0 3px 14px rgba(0,0,0,0.08);
-      border-color: #bbb;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+      border-color: #b8bfc8;
     }
     .link-card-label {
       font-family: var(--font-mono);
@@ -222,7 +222,7 @@
     .link-card-url {
       font-family: var(--font-mono);
       font-size: 0.8rem;
-      color: var(--red);
+      color: var(--orange);
       white-space: nowrap;
     }
 
@@ -234,10 +234,10 @@
       text-align: center;
       font-family: var(--font-mono);
       font-size: 0.78rem;
-      color: var(--muted);
+      color: var(--silver);
       border-top: 1px solid var(--border);
     }
-    footer a { color: var(--green); text-decoration: none; }
+    footer a { color: var(--orange); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
   </style>
 </head>
@@ -245,7 +245,7 @@
 
   <header>
     <a class="logo" href="#">
-      <span class="g">n</span><span class="g">a</span><span class="g">b</span><span class="r">i</span><span class="g">d</span><span class="g">h</span><span class="g">n</span>
+      <span class="s">n</span><span class="s">a</span><span class="s">b</span><span class="o">i</span><span class="s">d</span><span class="s">h</span><span class="s">n</span>
     </a>
     <nav>
       <a href="#">Home</a>
@@ -354,7 +354,7 @@
   </main>
 
   <footer>
-    Built with <span style="color:var(--red);">♥</span> and monospace typography &nbsp;·&nbsp;
+    Built with <span style="color:var(--orange);">♥</span> and monospace typography &nbsp;·&nbsp;
     <a href="https://github.com/nabidhn" target="_blank">github.com/nabidhn</a>
   </footer>
 
