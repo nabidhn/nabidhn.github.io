@@ -1,166 +1,362 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nabid Hasan | Terminal Portfolio</title>
-    <style>
-        :root {
-            --term-bg: #1a1b1e;
-            --term-green: #a6e22e;
-            --term-blue: #66d9ef;
-            --term-dim: #94a3b8;
-            --term-white: #f8f8f2;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>nabidhn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            background-color: var(--term-bg);
-            color: var(--term-white);
-            font-family: 'Fira Code', 'Courier New', monospace;
-            margin: 0;
-            padding: 2rem;
-            line-height: 1.6;
-        }
+    :root {
+      --green: #2e8b00;
+      --red: #c0001a;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --bg: #ffffff;
+      --tag-bg: #f0f0f0;
+      --font-mono: 'Inconsolata', monospace;
+      --font-body: 'Lora', Georgia, serif;
+    }
 
-        .terminal-nav {
-            border-bottom: 1px dashed var(--term-dim);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
 
-        .nav-links a {
-            color: var(--term-blue);
-            text-decoration: none;
-            margin-right: 1.5rem;
-        }
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem 0;
+    }
 
-        .nav-links a:hover { text-decoration: underline; }
+    .logo {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo .g { color: var(--green); }
+    .logo .r { color: var(--red); }
 
-        .prompt { color: var(--term-green); font-weight: bold; }
-        
-        .hero h1 { font-size: 2.5rem; color: var(--term-green); margin: 0; }
-        
-        .tagline { color: var(--term-dim); font-style: italic; margin-bottom: 2rem; }
+    nav {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    nav a:hover { color: var(--green); }
 
-        .about-section {
-            max-width: 900px;
-            border-left: 2px solid var(--term-green);
-            padding-left: 1.5rem;
-            margin-bottom: 3rem;
-        }
+    .nav-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.2rem auto 0;
+      max-width: 820px;
+    }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    /* ── Status ── */
+    .status-bar {
+      display: flex;
+      justify-content: flex-end;
+      max-width: 820px;
+      margin: 1rem auto 0;
+      padding: 0 1.2rem;
+    }
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .status-badge span { color: var(--green); font-weight: 700; }
 
-        .skill-card {
-            background: #25262b;
-            padding: 1.5rem;
-            border-radius: 4px;
-            border: 1px solid #373a40;
-        }
+    /* ── Page title ── */
+    .page-title {
+      text-align: center;
+      margin: 1.5rem auto 0.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    .page-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 820px;
+      margin: 0.5rem auto 2rem;
+    }
 
-        .skill-card h3 { color: var(--term-blue); margin-top: 0; }
-        
-        .tech-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+    /* ── Main ── */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.2rem 4rem;
+    }
 
-        .tech-tag {
-            background: #373a40;
-            font-size: 0.8rem;
-            padding: 2px 8px;
-            border-radius: 3px;
-        }
+    /* ── Section label ── */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
 
-        .github-btn {
-            display: inline-block;
-            background: var(--term-green);
-            color: black;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-top: 1rem;
-        }
-    </style>
+    /* ── Intro card ── */
+    .intro-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .prompt {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--green);
+      margin-bottom: 0.7rem;
+    }
+    .intro-card p.body {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── Skills grid ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.4rem 1.6rem;
+      transition: box-shadow 0.18s, border-color 0.18s;
+    }
+    .card:hover {
+      box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+      border-color: #bbb;
+    }
+    .card-title {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .card-desc {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.9rem;
+    }
+    .card-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0.7rem 0;
+    }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      background: var(--tag-bg);
+      color: var(--muted);
+      padding: 0.15rem 0.55rem;
+      border-radius: 3px;
+    }
+
+    /* ── Link card ── */
+    .link-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.18s, border-color 0.18s;
+    }
+    .link-card:hover {
+      box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+      border-color: #bbb;
+    }
+    .link-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .link-card-sub {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+    .link-card-url {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 2rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
-    <nav class="terminal-nav">
-        <div class="nav-links">
-            <a href="projects">./Projects</a>
-            <a href="contact">./Contact</a>
-        </div>
-        <div class="status">
-            <span class="prompt">STATUS:</span> ACTIVE_RESEARCHER
-        </div>
+  <header>
+    <a class="logo" href="#">
+      <span class="g">n</span><span class="g">a</span><span class="g">b</span><span class="r">i</span><span class="g">d</span><span class="g">h</span><span class="g">n</span>
+    </a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="projects">Projects</a>
+      <a href="contact">Contact</a>
     </nav>
+    <hr class="nav-divider"/>
+  </header>
 
-    <header class="hero">
-        <div class="about-section">
-            <p><span class="prompt">nabid@debian:~$</span> cat intro.txt</p>
-            <p>
-               👋 I’m an MSc student in Wireless Communication and RF Systems at Tampere University, specializing in GNSS positioning, 5G/Cloud RAN, and Machine Learning for communication systems. I enjoy working across the full stack of modern telecom systems. This includes physical layer fundamentals—such as Modulation, Channel Coding, and Equalization—as well as the deployment and optimization of Cloud RAN (vRAN) environments, focusing on Radio Resource Management and Network Security. I am also familiar with tools such as RTKLIB software, FGI-GSRx receiver, GNSSTk, gLAB for analyzing positioning data. I am comfortable working with MATLAB, Python, C/C++, UNIX/Linux environments, and cloud technologies. This includes managing Linux environments (Red Hat/Debian), automating infrastructure with Ansible and Terraform, deploying containerized applications using Docker and Kubernetes across AWS, Azure, GCP, and CSC cloud platforms, and implementing MLOps and CI/CD pipelines to move services from experimentation to reliable production.
-            </p>
+  <div class="status-bar">
+    <span class="status-badge">STATUS: <span>ACTIVE_RESEARCHER</span></span>
+  </div>
+
+  <h1 class="page-title">nabidhn's portfolio</h1>
+  <hr class="page-divider"/>
+
+  <main>
+
+    <!-- About -->
+    <div class="section-label" id="about">./About</div>
+
+    <div class="intro-card">
+      <p class="prompt">nabid@debian:~$ cat intro.txt</p>
+      <p class="body">
+        👋 I'm an MSc student in Wireless Communication and RF Systems at Tampere University,
+        specialising in GNSS positioning, 5G/Cloud RAN, and Machine Learning for communication
+        systems. I enjoy working across the full stack of modern telecom systems. This includes
+        physical layer fundamentals—such as Modulation, Channel Coding, and Equalisation—as well
+        as the deployment and optimisation of Cloud RAN (vRAN) environments, focusing on Radio
+        Resource Management and Network Security. I am also familiar with tools such as RTKLIB,
+        FGI-GSRx receiver, GNSSTk, and gLAB for analysing positioning data. I am comfortable
+        working with MATLAB, Python, C/C++, UNIX/Linux environments, and cloud technologies.
+        This includes managing Linux environments (Red Hat/Debian), automating infrastructure
+        with Ansible and Terraform, deploying containerised applications using Docker and
+        Kubernetes across AWS, Azure, GCP, and CSC cloud platforms, and implementing MLOps and
+        CI/CD pipelines to move services from experimentation to reliable production.
+      </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="section-label" id="skills" style="margin-top:2rem;">./Skills</div>
+
+    <div class="cards-grid">
+
+      <div class="card">
+        <p class="card-title">📡 Wireless &amp; RF</p>
+        <p class="card-desc">5G, GNSS, Radio Networks</p>
+        <hr class="card-divider"/>
+        <div class="tag-list">
+          <span class="tag">5G NR</span>
+          <span class="tag">OFDM</span>
+          <span class="tag">RTK/PPP</span>
+          <span class="tag">RTKLIB</span>
+          <span class="tag">GPS</span>
+          <span class="tag">GNSS Receiver</span>
+          <span class="tag">MIMO</span>
+          <span class="tag">Cloud RAN</span>
+          <span class="tag">SDR</span>
         </div>
-    </header>
+      </div>
 
-    <main class="grid-container">
-        <div class="skill-card">
-            <h3>📡 Wireless & RF</h3>
-            <p> 5G, GNSS, Radio Network </p>
-            <div class="tech-list">
-                <span class="tech-tag">5G NR</span>
-                <span class="tech-tag">OFDM</span>
-                <span class="tech-tag">RTK/PPP</span>
-                <span class="tech-tag">RTKLIB</span>
-                <span class="tech-tag">GPS</span>
-                <span class="tech-tag">GNSS Receiver</span>
-                <span class="tech-tag">MIMO</span>
-                <span class="tech-tag">Cloud RAN</span>
-                <span class="tech-tag">Software-defined Radio</span>
-            </div>
+      <div class="card">
+        <p class="card-title">☁️ Cloud &amp; MLOps</p>
+        <p class="card-desc">Infrastructure automation &amp; containerisation</p>
+        <hr class="card-divider"/>
+        <div class="tag-list">
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Terraform</span>
+          <span class="tag">Ansible</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Azure</span>
+          <span class="tag">GCP</span>
+          <span class="tag">CSC</span>
         </div>
+      </div>
 
-        <div class="skill-card">
-            <h3>☁️ Cloud & MLOps</h3>
-            <p>Automating infrastructure and deploying containerized applications.</p>
-            <div class="tech-list">
-                <span class="tech-tag">Kubernetes</span>
-                <span class="tech-tag">Docker</span>
-                <span class="tech-tag">Terraform</span>
-                <span class="tech-tag">Ansible</span>
-                <span class="tech-tag">CI/CD</span>
-            </div>
+      <div class="card">
+        <p class="card-title">💻 Programming</p>
+        <p class="card-desc">Simulation &amp; data analysis</p>
+        <hr class="card-divider"/>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">MATLAB</span>
+          <span class="tag">C/C++</span>
+          <span class="tag">Bash</span>
         </div>
+      </div>
 
-        <div class="skill-card">
-            <h3>💻 Programming</h3>
-            <p>Proficient in Simulation and Data Analysis.</p>
-            <div class="tech-list">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">MATLAB</span>
-                <span class="tech-tag">C/C++</span>
-                <span class="tech-tag">Bash Scripting</span>
-            </div>
-        </div>
-    </main>
+    </div>
 
-    <footer style="margin-top: 4rem; color: var(--term-dim); font-size: 0.8rem; text-align: center;">
-        <p>Built with <span style="color: #e06c75;">&hearts;</span> and Monospace Typography</p>
-    </footer>
+    <!-- Links -->
+    <div class="section-label" style="margin-top:2rem;">./Links</div>
+
+    <a class="link-card" href="https://github.com/nabidhn" target="_blank">
+      <div>
+        <p class="link-card-label">GitHub — nabidhn</p>
+        <p class="link-card-sub">Source code, GNSS scripts, vRAN configs &amp; ML experiments</p>
+      </div>
+      <span class="link-card-url">github.com/nabidhn →</span>
+    </a>
+
+  </main>
+
+  <footer>
+    Built with <span style="color:var(--red);">♥</span> and monospace typography &nbsp;·&nbsp;
+    <a href="https://github.com/nabidhn" target="_blank">github.com/nabidhn</a>
+  </footer>
 
 </body>
 </html>
-
-
-
-
