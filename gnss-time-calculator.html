@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GNSS Time Calculator</title>
-</head>
-<body>
+---
+layout: default
+title: GNSS Time Calculator
+---
 
 <h2>GNSS Time Calculator</h2>
 <p>Convert GPS Week + Time of Week to GPS time and UTC time.</p>
@@ -40,16 +36,10 @@ function calculate() {
   const tow  = parseFloat(document.getElementById('tow').value);
   const leap = parseInt(document.getElementById('leap').value);
 
-  // GPS epoch: 6 Jan 1980 00:00:00 UTC
   const gpsEpoch = Date.UTC(1980, 0, 6, 0, 0, 0);
-
-  // Total milliseconds since GPS epoch
   const gpsMs = gpsEpoch + (week * 7 * 24 * 3600 + tow) * 1000;
 
-  // GPS time (no leap seconds)
   const gpsDate = new Date(gpsMs);
-
-  // UTC = GPS - leap seconds
   const utcDate = new Date(gpsMs - leap * 1000);
 
   const fmt = (n) => String(n).padStart(2, '0');
@@ -64,6 +54,3 @@ function calculate() {
 
 calculate();
 </script>
-
-</body>
-</html>
