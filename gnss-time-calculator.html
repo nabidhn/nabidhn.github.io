@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GNSS Time Calculator</title>
+</head>
+<body>
+
+<h2>GNSS Time Calculator</h2>
+<p>Convert GPS Week + Time of Week to GPS time and UTC time.</p>
+
+<label>GPS Week Number:<br/>
+  <input type="number" id="week" value="2417" min="0"/>
+</label>
+<br/><br/>
+
+<label>Time of Week (seconds):<br/>
+  <input type="number" id="tow" value="88892" min="0" max="604799"/>
+</label>
+<br/><br/>
+
+<label>Leap Seconds (GPS - UTC, current = 18):<br/>
+  <input type="number" id="leap" value="18" min="0"/>
+</label>
+<br/><br/>
+
+<button onclick="calculate()">Calculate</button>
+
+<hr/>
+
+<p><strong>GPS Date:</strong> <span id="gps-date">—</span></p>
+<p><strong>GPS Time:</strong> <span id="gps-time">—</span></p>
+<p><strong>UTC Date:</strong> <span id="utc-date">—</span></p>
+<p><strong>UTC Time:</strong> <span id="utc-time">—</span></p>
+
+<script>
+function calculate() {
+  const week = parseInt(document.getElementById('week').value);
+  const tow  = parseFloat(document.getElementById('tow').value);
+  const leap = parseInt(document.getElementById('leap').value);
+
+  // GPS epoch: 6 Jan 1980 00:00:00 UTC
+  const gpsEpoch = Date.UTC(1980, 0, 6, 0, 0, 0);
+
+  // Total milliseconds since GPS epoch
+  const gpsMs = gpsEpoch + (week * 7 * 24 * 3600 + tow) * 1000;
+
+  // GPS time (no leap seconds)
+  const gpsDate = new Date(gpsMs);
+
+  // UTC = GPS - leap seconds
+  const utcDate = new Date(gpsMs - leap * 1000);
+
+  const fmt = (n) => String(n).padStart(2, '0');
+  const fmtDate = (d) => `${d.getUTCFullYear()}-${fmt(d.getUTCMonth()+1)}-${fmt(d.getUTCDate())}`;
+  const fmtTime = (d) => `${fmt(d.getUTCHours())}:${fmt(d.getUTCMinutes())}:${fmt(d.getUTCSeconds())}`;
+
+  document.getElementById('gps-date').textContent = fmtDate(gpsDate);
+  document.getElementById('gps-time').textContent = fmtTime(gpsDate);
+  document.getElementById('utc-date').textContent = fmtDate(utcDate);
+  document.getElementById('utc-time').textContent = fmtTime(utcDate);
+}
+
+calculate();
+</script>
+
+</body>
+</html>
